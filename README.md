@@ -6,7 +6,7 @@ Symfonize provides the following 3 features to ensure the seamless integration o
 - Bundle loading configured through application.config.php. This caches DI config and routing for performance.
 
 ####Container Bridge
-- A bridge between the SF DI container and the ZF service maneger. Requests for ZF-module-defined services from the SF container work. Requests for SF-bundle-defined services from the ZF service manager also work. 
+- A bridge between the SF DI container and the ZF service manager. Requests for ZF-module-defined services from the SF container work. Requests for SF-bundle-defined services from the ZF service manager also work. 
 
 ####Routing bridge
 - A routing bridge that allows SF-bundle-defined routes to be dispatched to SF controllers. Symfony does not boot for ZF-defined routes.

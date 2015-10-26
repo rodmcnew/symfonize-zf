@@ -18,7 +18,6 @@ class Module
          * symfony-handled routes.
          */
         self::$zendServiceManager=$e->getApplication()->getServiceManager();
-//        ContainerBridge::getContainer();
     }
 
     /**

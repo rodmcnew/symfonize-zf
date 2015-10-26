@@ -18,7 +18,7 @@ class SymfonyDispatcher
     public function dispatchRouteToSymfony($params)
     {
 //        $loader = require_once __DIR__.'/../SymfonyRoot/app/bootstrap.php.cache';
-//        $apcLoader = new ApcClassLoader('SymfonizeZf', $loader);
+//        $apcLoader = new ApcClassLoader('SymfonizeZF', $loader);
 //        $loader->unregister();
 //        $apcLoader->register(true);
         //@TODO get ProductionCheck out of here

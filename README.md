@@ -32,6 +32,6 @@ Symfonize provides the following 4 features to ensure the seamless integration o
           * This should be false on dev, and true on prod.
           */
         'cache_enabled' => $setMeProperly,
-        'cache_dir' => __DIR__ . '/../data/SymfonizeZf'
+        'cache_dir' => __DIR__ . '/../data/SymfonizeZF'
     ]
 ]

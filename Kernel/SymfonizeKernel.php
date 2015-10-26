@@ -3,7 +3,7 @@
 
 namespace Reliv\SymfonizeZF\Kernel;
 
-use Reliv\SymfonizeZf\Loader\Loader;
+use Reliv\SymfonizeZF\Loader\Loader;
 use Reliv\SymfonizeZF\ContainerBridge\ContainerBridge;
 use Reliv\SymfonizeZF\ContainerBridge\SymfonyContainerWithZFFallback;
 use Reliv\SymfonizeZF\Module;
@@ -68,7 +68,7 @@ class SymfonizeKernel extends Kernel
     {
         //@TODO get from config;
 //        return Loader::getCacheDirPath();
-        return 'data/SymfonizeZf' . '/symfony';
+        return 'data/SymfonizeZF' . '/symfony';
     }
 
     public function getLogDir()

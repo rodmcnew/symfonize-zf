@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Reliv\SymfonizeZf\Loader;
+namespace Reliv\SymfonizeZF\Loader;
 
 use Symfony\Component\Config\ConfigCache;
 use Symfony\Component\Routing\Loader\YamlFileLoader;

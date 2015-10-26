@@ -2,33 +2,48 @@
 
 namespace Reliv\SymfonizeZF\ContainerBridge;
 
+use Reliv\SymfonizeZF\Module;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 class ContainerBridge implements AbstractFactoryInterface
 {
+    /**
+     * @var ContainerInterface
+     */
     protected static $container;
 
     /**
+     * Returns the Symfony Container
+     *
      * @param ServiceLocatorInterface $zendServiceManager
      * @return ContainerInterface
      */
     public static function getContainer($zendServiceManager = null)
     {
-        if (!self::$container instanceof ContainerInterface) {
-            self::$container = new SymfonyContainerBuilderWithZendFallback();
+        if (!self::$container) {
+            self::$container = new SymfonyContainerWithZFFallback();
         }
 
-        //@TODO ONLY DO THIS ONCE FOR PERFORMANCE REASONS
-        if ($zendServiceManager instanceof ServiceLocatorInterface) {
+        if (!Module::$zendServiceManager && $zendServiceManager) {
             if ($zendServiceManager->has('serviceLocator')) {
                 $zendServiceManager = $zendServiceManager->get('serviceLocator');
             }
-            self::$container->setZendServiceManager($zendServiceManager);
+            Module::$zendServiceManager = $zendServiceManager;
         }
 
         return self::$container;
+    }
+
+    /**
+     * Setter for container
+     *
+     * @param ContainerInterface $containerInterface
+     */
+    public static function setContainer(ContainerInterface $containerInterface)
+    {
+        self::$container = $containerInterface;
     }
 
     /**

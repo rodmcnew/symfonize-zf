@@ -1,6 +1,6 @@
 SymfonizeZF allows you to include Symfony 2 Bundles in your Zend Framework 2 application.
 
-Symfonize provides the following 4 features to ensure the seamless integration of Symfony bundles:
+Symfonize provides the following 3 features to ensure the seamless integration of Symfony bundles:
 
 ####Bundle Loader
 - Bundle loading configured through application.config.php. This caches DI config and routing for performance.

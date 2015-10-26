@@ -3,8 +3,6 @@
 namespace Reliv\SymfonizeZF\RouteBridge;
 
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Routing\Matcher\UrlMatcher;
-use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Zend\Mvc\Router\Http\RouteInterface;
 use Zend\Mvc\Router\RouteMatch;

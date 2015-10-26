@@ -3,7 +3,7 @@
 
 namespace Reliv\SymfonizeZF\Kernel;
 
-use Reliv\SymfonizeZF\Config\Loader;
+use Reliv\SymfonizeZf\Loader\Loader;
 use Reliv\SymfonizeZF\ContainerBridge\ContainerBridge;
 use Reliv\SymfonizeZF\ContainerBridge\SymfonyContainerWithZFFallback;
 use Reliv\SymfonizeZF\Module;

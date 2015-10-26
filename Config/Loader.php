@@ -1,6 +1,6 @@
 <?php
 
-namespace Reliv\SymfonizeZF\Config;
+namespace Reliv\SymfonizeZf\Loader;
 
 use Reliv\SymfonizeZF\ContainerBridge\ContainerBridge;
 use Reliv\SymfonizeZF\RouteBridge\RouteBridge;

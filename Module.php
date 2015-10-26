@@ -2,11 +2,7 @@
 
 namespace Reliv\SymfonizeZF;
 
-use Reliv\SymfonizeZF\Config\Loader;
-use Reliv\SymfonizeZF\ContainerBridge\ContainerBridge;
-use Reliv\SymfonizeZF\ContainerBridge\SymfonyContainerWithZFFallback;
-use Reliv\SymfonizeZF\RouteBridge\RouteBridge;
-use Symfony\Component\Routing\RouteCollection;
+use Reliv\SymfonizeZf\Loader\Loader;
 use Zend\Mvc\MvcEvent;
 
 class Module

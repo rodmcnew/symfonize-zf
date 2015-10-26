@@ -1,9 +1,8 @@
 <?php
 
 
-namespace Reliv\SymfonizeZF\Config;
+namespace Reliv\SymfonizeZf\Loader;
 
-use Reliv\SymfonizeZF\RouteBridge\RouteBridge;
 use Symfony\Component\Config\ConfigCache;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;

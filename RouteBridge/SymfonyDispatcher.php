@@ -26,9 +26,7 @@ class SymfonyDispatcher
             ProductionCheck::onLocal() ? 'dev' : 'prod',
             ProductionCheck::onLocal()
         );
-        if (!ProductionCheck::onLocal()) {
-            $kernel->loadClassCache();
-        }
+        $kernel->loadClassCache();
         $request = Request::createFromGlobals();
         $response = $kernel->handle($request);
         $response->send();

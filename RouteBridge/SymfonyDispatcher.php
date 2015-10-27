@@ -22,11 +22,14 @@ class SymfonyDispatcher
 //        $loader->unregister();
 //        $apcLoader->register(true);
         //@TODO get ProductionCheck out of here
+        $debug = ProductionCheck::onLocal();
         $kernel = new SymfonizeKernel(
             ProductionCheck::onLocal() ? 'dev' : 'prod',
-            ProductionCheck::onLocal()
+            $debug
         );
-        $kernel->loadClassCache();
+        if (!$debug) {
+            $kernel->loadClassCache();
+        }
         $request = Request::createFromGlobals();
         $response = $kernel->handle($request);
         $response->send();

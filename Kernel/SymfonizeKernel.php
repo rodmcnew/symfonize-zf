@@ -96,6 +96,9 @@ class SymfonizeKernel extends Kernel
 
     public function registerBundles()
     {
+        /**
+         * @TODO make configurable on application.config.php
+         */
         $bundles = array(
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \Symfony\Bundle\SecurityBundle\SecurityBundle(),
@@ -108,6 +111,9 @@ class SymfonizeKernel extends Kernel
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+            /**
+             * @TODO make configurable on application.config.php
+             */
             $bundles[] = new \Symfony\Bundle\DebugBundle\DebugBundle();
 //            $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new \Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
@@ -120,6 +126,7 @@ class SymfonizeKernel extends Kernel
     }
 
     /**
+     * @TODO make configurable on application.config.php
      * Returns the app's root dir
      *
      * @return string

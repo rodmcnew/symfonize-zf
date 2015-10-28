@@ -97,7 +97,7 @@ class SymfonizeKernel extends Kernel
     public function registerBundles()
     {
         /**
-         * @TODO move to config
+         * @TODO make configurable on application.config.php
          */
         $bundles = array(
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
@@ -112,7 +112,7 @@ class SymfonizeKernel extends Kernel
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             /**
-             * @TODO move to config
+             * @TODO make configurable on application.config.php
              */
             $bundles[] = new \Symfony\Bundle\DebugBundle\DebugBundle();
 //            $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
@@ -126,7 +126,7 @@ class SymfonizeKernel extends Kernel
     }
 
     /**
-     * @TODO move to config
+     * @TODO make configurable on application.config.php
      * Returns the app's root dir
      *
      * @return string

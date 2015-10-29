@@ -53,7 +53,7 @@ Symfonize provides the following 3 features to ensure the seamless integration o
         ],
         'environment' => $onProd ? 'prod' : 'dev',
         /**
-         * Should be true on dev, and false on prod. This disable caching.
+         * Should be true on dev, and false on prod. This disables caching.
          */
         'debug' => !$onProd,
         /**

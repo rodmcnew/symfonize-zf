@@ -21,7 +21,7 @@ Symfonize provides the following 3 features to ensure the seamless integration o
     ],
     'symfonize_zf' => [
         /**
-         * This is the place to register your bundles.This is similar to:
+         * This is the place to register your own bundles. This is similar to:
          * http://symfony.com/doc/current/cookbook/bundles/installation.html
          */
         'bundles' => [

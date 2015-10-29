@@ -2,23 +2,14 @@
 
 namespace Reliv\SymfonizeZF;
 
-use Reliv\SymfonizeZF\Loader\Loader;
+use Reliv\SymfonizeZF\Loader\BundleLoader;
 use Zend\Mvc\MvcEvent;
 
 class Module
 {
     protected $appConfigPath = 'config/application.config.php';
-    public static $bundles = [];
+    public static $symfonizeConfig = [];
     public static $zendServiceManager;
-
-    public function onBootstrap(MvcEvent $e)
-    {
-        /**
-         * Ensure Service manager gets set during
-         * symfony-handled routes.
-         */
-        self::$zendServiceManager=$e->getApplication()->getServiceManager();
-    }
 
     /**
      * Constructor
@@ -27,38 +18,26 @@ class Module
     {
         //Ignore if no file to keep ZF controller unit tests working
         if (file_exists($this->appConfigPath)) {
-            $this->loadAppConfig(require($this->appConfigPath));
+            $appConfig=require($this->appConfigPath);
+            self::$symfonizeConfig = $appConfig['symfonize_zf'];
 
         }
-        Loader::loadAll();
+        $bundleLoader = new BundleLoader();
+        $bundleLoader->loadBundles(self::$symfonizeConfig);
     }
 
-    public function loadAppConfig($appConfig)
+    /**
+     * Runs when ZF boots
+     *
+     * @param MvcEvent $e
+     */
+    public function onBootstrap(MvcEvent $e)
     {
-        if (isset($appConfig['symfonize_zf'])) {
-            $symfonizeConfig = $appConfig['symfonize_zf'];
-            $this->processCacheConfig($symfonizeConfig);
-            $this->processBundleConfig($symfonizeConfig);
-        }
-    }
-
-    public function processBundleConfig($symfonizeConfig)
-    {
-        $bundles = $symfonizeConfig['bundles'];
-        self::$bundles = $bundles;
-        foreach ($bundles as $bundle) {
-            Loader::addBundle($bundle);
-        }
-    }
-
-    public function processCacheConfig($symfonizeConfig)
-    {
-        if (isset($symfonizeConfig['cache_enabled'])
-            && $symfonizeConfig['cache_enabled']
-        ) {
-            Loader::setCacheEnabled(true);
-        }
-        Loader::setCacheDirPath($symfonizeConfig['cache_dir'].'/loader');
+        /**
+         * Ensure Service manager gets set during
+         * symfony-handled routes.
+         */
+        self::$zendServiceManager = $e->getApplication()->getServiceManager();
     }
 
     /**

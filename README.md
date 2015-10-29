@@ -21,17 +21,51 @@ Symfonize provides the following 3 features to ensure the seamless integration o
     ],
     'symfonize_zf' => [
         /**
-         * This is the place to register bundles.This is similar to:
+         * This is the place to register your bundles.This is similar to:
          * http://symfony.com/doc/current/cookbook/bundles/installation.html
          */
         'bundles' => [
-            new \Fun\FunBundle(),
-            new \SuperFun\SuperFunBundle()
+            new \MyOwnFun\MyOwnFunBundle(),
         ],
         /**
-          * This should be false on dev, and true on prod.
-          */
-        'cache_enabled' => $setMeProperly,
-        'cache_dir' => __DIR__ . '/../data/SymfonizeZF'
+         * These bundles do not load for zend routes. They only load if
+         * a Symfony route is detected and Symfony is booted.
+         */
+        'symfony_only_bundles' => [
+            new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            new \Symfony\Bundle\SecurityBundle\SecurityBundle(),
+            new \Symfony\Bundle\TwigBundle\TwigBundle(),
+            new \Symfony\Bundle\MonologBundle\MonologBundle(),
+            new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+            new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+        ],
+        /**
+         * These bundles load only if environment is dev or test.
+         */
+        'dev_bundles' => [
+            new \Symfony\Bundle\DebugBundle\DebugBundle(),
+            new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle(),
+            new \Sensio\Bundle\DistributionBundle\SensioDistributionBundle(),
+            new \Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
+        ],
+        'environment' => $onProd ? 'prod' : 'dev',
+        /**
+         * Should be true on dev, and false on prod. This disable caching.
+         */
+        'debug' => !$onProd,
+        /**
+         * Cache files are written here
+         */
+        'cache_dir' => __DIR__ . '/../data/SymfonizeZf',
+        /**
+         * Log files go here
+         */
+        'log_dir' => __DIR__ . '/../data/SymfonizeZf/log',
+        /**
+         * This can be changed if you want to control your own Symfony root
+         */
+        'symfony_root_dir' => __DIR__ . '/../vendor/reliv/symfonize-zf/SymfonyRoot'
     ]
 ]

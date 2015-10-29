@@ -8,10 +8,15 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
+/**
+ * This is a Symfony container that uses the zend service manager
+ * if it cannot find its services.
+ *
+ * Class SymfonyContainerWithZFFallback
+ * @package Reliv\SymfonizeZF\ContainerBridge
+ */
 class SymfonyContainerWithZFFallback extends ContainerBuilder
 {
-//    protected $zendServiceManager;
-
     public function compile()
     {
         /**
@@ -30,11 +35,6 @@ class SymfonyContainerWithZFFallback extends ContainerBuilder
         $prop->setValue($passConfig, $removingPasses);
         parent::compile();
     }
-
-//    public function setZendServiceManager(ServiceLocatorInterface $zendServiceManager)
-//    {
-//        $this->zendServiceManager = $zendServiceManager;
-//    }
 
     /**
      * Returns true if the given service is defined.

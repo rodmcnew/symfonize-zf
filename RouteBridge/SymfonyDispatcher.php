@@ -12,6 +12,7 @@ class SymfonyDispatcher
 {
     /**
      * This function has Symfony handle the incoming request.
+     * @TODO investigate improving performance but un-commenting the caching below
      */
     public function dispatchRouteToSymfony()
     {

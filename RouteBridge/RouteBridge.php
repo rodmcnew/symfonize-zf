@@ -52,7 +52,7 @@ class RouteBridge implements RouteInterface
      */
     public function assemble(array $params = [], array $options = [])
     {
-        // TODO: Implement assemble() method.
+        // Nothing appears to be needed here
     }
 
     /**
@@ -66,7 +66,7 @@ class RouteBridge implements RouteInterface
     }
 
     /**
-     * Match a given request.
+     * Match a given request. Run Symfony if it wants the route.
      *
      * @param  Request $request
      * @return RouteMatch|null
@@ -74,16 +74,13 @@ class RouteBridge implements RouteInterface
     public function match(Request $request)
     {
         try {
-            //This line is odd but prevents a warning
-//            self::$routeCollection->request = $request;
-
-            $params = self::$routeCollection
+            self::$routeCollection
                 ->match($request->getUri()->getPath());
         } catch (ResourceNotFoundException $e) {
             return null;
         }
 
         $dispatcher = new SymfonyDispatcher();
-        $dispatcher->dispatchRouteToSymfony($params);
+        $dispatcher->dispatchRouteToSymfony();
     }
 }

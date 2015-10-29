@@ -3,17 +3,14 @@
 
 namespace Reliv\SymfonizeZF\Kernel;
 
-use Reliv\SymfonizeZF\Loader\Loader;
-use Reliv\SymfonizeZF\ContainerBridge\ContainerBridge;
 use Reliv\SymfonizeZF\ContainerBridge\SymfonyContainerWithZFFallback;
 use Reliv\SymfonizeZF\Module;
 use Reliv\SymfonizeZF\RouteBridge\RouteBridge;
 use Symfony\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator;
-use Symfony\Component\Config\ConfigCache;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class SymfonizeKernel extends Kernel
 {
@@ -23,7 +20,7 @@ class SymfonizeKernel extends Kernel
      * The cached version of the service container is used when fresh, otherwise the
      * container is built.
      *
-     * @TODO check if performance can be improved here by uncommenting caching.
+     * @TODO investigate improving performance by un-commenting the caching below
      */
     protected function initializeContainer()
     {
@@ -66,14 +63,12 @@ class SymfonizeKernel extends Kernel
 
     public function getCacheDir()
     {
-        //@TODO get from config;
-//        return Loader::getCacheDirPath();
-        return 'data/SymfonizeZF' . '/symfony';
+        return Module::$symfonizeConfig['cache_dir'];
     }
 
     public function getLogDir()
     {
-        return $this->getCacheDir() . '/log';
+        return Module::$symfonizeConfig['log_dir'];
     }
 
     /**
@@ -96,44 +91,29 @@ class SymfonizeKernel extends Kernel
 
     public function registerBundles()
     {
-        /**
-         * @TODO make configurable on application.config.php
-         */
-        $bundles = array(
-            new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new \Symfony\Bundle\SecurityBundle\SecurityBundle(),
-            new \Symfony\Bundle\TwigBundle\TwigBundle(),
-            new \Symfony\Bundle\MonologBundle\MonologBundle(),
-//            new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-//            new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
-//            new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-//            new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+        $bundles = array_merge(
+            Module::$symfonizeConfig['symfony_only_bundles'],
+            Module::$symfonizeConfig['bundles']
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            /**
-             * @TODO make configurable on application.config.php
-             */
-            $bundles[] = new \Symfony\Bundle\DebugBundle\DebugBundle();
-//            $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
-            $bundles[] = new \Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
-            $bundles[] = new \Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles = array_merge(
+                $bundles,
+                Module::$symfonizeConfig['symfony_only_dev_bundles']
+            );
         }
-
-        $bundles = array_merge($bundles, Module::$bundles);
 
         return $bundles;
     }
 
     /**
-     * @TODO make configurable on application.config.php
      * Returns the app's root dir
      *
      * @return string
      */
     public function getSymfonyRootDir()
     {
-        return __DIR__ . '/../SymfonyRoot';
+        return Module::$symfonizeConfig['symfony_root_dir'];
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)

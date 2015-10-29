@@ -20,7 +20,7 @@ class SymfonizeKernel extends Kernel
      * The cached version of the service container is used when fresh, otherwise the
      * container is built.
      *
-     * @TODO check if performance can be improved here by uncommenting caching.
+     * @TODO investigate improving performance but un-commenting the caching below
      */
     protected function initializeContainer()
     {

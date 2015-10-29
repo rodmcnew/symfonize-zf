@@ -63,7 +63,7 @@ class SymfonizeKernel extends Kernel
 
     public function getCacheDir()
     {
-        return Module::$symfonizeConfig['cache_dir'];
+        return Module::$symfonizeConfig['cache_dir'] . '/symfony-cache';
     }
 
     public function getLogDir()

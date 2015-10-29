@@ -25,9 +25,11 @@ class BundleLoader
             $bundlePaths[] = $bundle->getPath();
         }
 
+        $cacheDir = $symfonizeConfig['cache_dir'] . '/symfonize-cache';
+
         $containerLoader = new ContainerLoader();
         $loadedContainer = $containerLoader->loadDIConfig(
-            $symfonizeConfig['cache_dir'],
+            $cacheDir,
             !$symfonizeConfig['debug'],
             $extensions,
             ContainerBridge::getContainer()
@@ -37,7 +39,7 @@ class BundleLoader
         $routingLoader = new RoutingLoader();
         $loadedRouteCollection = $routingLoader->loadRouting(
             $bundlePaths,
-            $symfonizeConfig['cache_dir'],
+            $cacheDir,
             !$symfonizeConfig['debug'],
             RouteBridge::getRouteCollection()
         );

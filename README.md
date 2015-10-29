@@ -43,8 +43,9 @@ Symfonize provides the following 3 features to ensure the seamless integration o
         ],
         /**
          * These bundles load only if environment is dev or test.
+         * These bundles do not load for zend routes.
          */
-        'dev_bundles' => [
+        'symfony_only_dev_bundles' => [
             new \Symfony\Bundle\DebugBundle\DebugBundle(),
             new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle(),
             new \Sensio\Bundle\DistributionBundle\SensioDistributionBundle(),

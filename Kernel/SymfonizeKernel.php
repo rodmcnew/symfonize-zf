@@ -99,7 +99,7 @@ class SymfonizeKernel extends Kernel
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles = array_merge(
                 $bundles,
-                Module::$symfonizeConfig['dev_bundles']
+                Module::$symfonizeConfig['symfony_only_dev_bundles']
             );
         }
 

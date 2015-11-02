@@ -3,7 +3,7 @@
 
 namespace Reliv\SymfonizeZF\Kernel;
 
-use Reliv\SymfonizeZF\ContainerBridge\SymfonyContainerWithZFFallback;
+use Reliv\SymfonizeZFContainerBridge\SymfonyContainerWithZFFallback;
 use Reliv\SymfonizeZF\Module;
 use Reliv\SymfonizeZF\RouteBridge\RouteBridge;
 use Symfony\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator;

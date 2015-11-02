@@ -34,7 +34,7 @@ class ContainerLoader
 
             $cache->write($dumper->dump([
                 'class' => $cacheClass,
-                'base_class' => '\Reliv\SymfonizeZF\ContainerBridge\SymfonyContainerWithZFFallback',
+                'base_class' => '\Reliv\SymfonizeZFContainerBridge\SymfonyContainerWithZFFallback',
             ]));
         }
         require $cachePath;

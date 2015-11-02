@@ -18,7 +18,7 @@ class Module
     {
         //Ignore if no file to keep ZF controller unit tests working
         if (file_exists($this->appConfigPath)) {
-            $appConfig=require($this->appConfigPath);
+            $appConfig = require($this->appConfigPath);
             self::$symfonizeConfig = $appConfig['symfonize_zf'];
 
         }
@@ -57,74 +57,11 @@ class Module
                     ],
                 ]
             ],
-            'controllers' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
-            'controller_plugins' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
-            'filters' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
-            'form_elements' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
-            'hydrators' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
-            'input_filters' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
             'route_manager' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
                 'invokables' => [
                     'symfonize_zf.route_bridge' =>
                         'Reliv\SymfonizeZF\RouteBridge\RouteBridge'
                 ]
-            ],
-            'serializers' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
-            'service_manager' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ]
-            ],
-            'validators' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
-            'view_helpers' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
-            'log_processors' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
-            ],
-            'log_writers' => [
-                'abstract_factories' => [
-                    'Reliv\SymfonizeZF\ContainerBridge\ContainerBridge'
-                ],
             ]
         ];
     }

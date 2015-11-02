@@ -2,9 +2,8 @@
 
 namespace Reliv\SymfonizeZF\Loader;
 
-use Reliv\SymfonizeZF\ContainerBridge\ContainerBridge;
+use Reliv\SymfonizeZFContainerBridge\ContainerBridge;
 use Reliv\SymfonizeZF\RouteBridge\RouteBridge;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class BundleLoader
 {

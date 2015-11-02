@@ -1,6 +1,6 @@
 {
   "name": "reliv/symfonize-zf",
-  "description": "SymfonizeZF allows you to include Symfony 2 Bundles in your Zend Framework 2 application.",
+  "description": "Allows you to use Symfony 2 bundles in Zend Framework 2 apps",
   "require": {
     "php": ">=5.5.0",
     "symfony/framework-standard-edition": "2.7.5",

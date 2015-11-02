@@ -16,8 +16,9 @@ Symfonize provides the following 3 features to ensure the seamless integration o
 // In config/autoload/application.config.php
 [
     'modules' => [
-        //Add Symfonize to the end of your ZF modules list.
+        //Add Symfonize modules to the end of your ZF modules list.
         'Reliv\SymfonizeZF'
+        'Reliv\\SymfonizeZFContainerBridge',
     ],
     'symfonize_zf' => [
         /**

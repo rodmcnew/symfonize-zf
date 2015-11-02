@@ -9,7 +9,6 @@ class Module
 {
     protected $appConfigPath = 'config/application.config.php';
     public static $symfonizeConfig = [];
-    public static $zendServiceManager;
 
     /**
      * Constructor
@@ -24,20 +23,6 @@ class Module
         }
         $bundleLoader = new BundleLoader();
         $bundleLoader->loadBundles(self::$symfonizeConfig);
-    }
-
-    /**
-     * Runs when ZF boots
-     *
-     * @param MvcEvent $e
-     */
-    public function onBootstrap(MvcEvent $e)
-    {
-        /**
-         * Ensure Service manager gets set during
-         * symfony-handled routes.
-         */
-        self::$zendServiceManager = $e->getApplication()->getServiceManager();
     }
 
     /**

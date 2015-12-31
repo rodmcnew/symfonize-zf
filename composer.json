@@ -1,11 +1,11 @@
 {
-  "name": "reliv/symfonize-zf",
+  "name": "rodmcnew/symfonize-zf",
   "description": "Allows you to use Symfony 2 bundles in Zend Framework 2 apps",
   "require": {
     "php": ">=5.5.0",
     "symfony/framework-standard-edition": "2.7.5",
     "sensio/generator-bundle": ">=2.3",
-    "reliv/symfonize-zf-container-bridge": ">=1.1.1"
+    "rodmcnew/symfonize-zf-container-bridge": ">=1.1.1"
   },
   "require-dev": {
     "phpunit/phpunit": "4.8.*",

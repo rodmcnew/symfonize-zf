@@ -1,6 +1,7 @@
 {
   "name": "rodmcnew/symfonize-zf",
   "description": "Allows you to use Symfony 2 bundles in Zend Framework 2 apps",
+  "license": "MIT",
   "require": {
     "php": ">=5.5.0",
     "symfony/framework-standard-edition": "2.7.5",
